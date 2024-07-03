@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-
+import { BsCheckCircle, BsXCircle } from 'react-icons/bs';
 function App () {
 
   // MCQ questions
@@ -150,7 +150,7 @@ function App () {
       }
     }, 1000)
   }
-  
+
 //restart
   const handleRestart = () => {
     setScore(0)
@@ -173,7 +173,11 @@ function App () {
                 <strong>Q:</strong> {answer.question}
                 <br />
                 <strong>A:</strong> {answer.answer}{' '}
-                {answer.isCorrect ? '✔️' : '❌'}
+                {answer.isCorrect ? (
+                  <BsCheckCircle style={{ color: 'green', marginLeft: '5px' }} />
+                ) : (
+                  <BsXCircle style={{ color: 'red', marginLeft: '5px' }} />
+                )}
               </li>
             ))}
           </ul>
